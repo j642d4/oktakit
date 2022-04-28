@@ -67,20 +67,8 @@ module Oktakit
       }
 
       resp, status, next_page = request :get, url, **request_options
-
-      # If request succeeded and we should paginate, then automatically traverse all next_pages
-      if status == 200 && should_paginate
-        all_objs = [resp]
-        while next_page
-          resp, status, next_page = request :get, next_page, **request_options
-          break unless status == 200 # Return early if page request fails
-
-          all_objs << resp
-        end
-        resp = all_objs.flatten
-      end
-
-      [resp, status]
+      
+      [resp, status, next_page]
     end
 
     # Make a HTTP POST request

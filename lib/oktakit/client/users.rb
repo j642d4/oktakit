@@ -43,8 +43,8 @@ module Oktakit
       # @see https://developer.okta.com/docs/api/resources/users#list-users
       # @example
       #   Oktakit.list_users
-      def list_users(options = {})
-        get('/users', options)
+      def list_users(url, options = {})
+        get(url, options)
       end
 
       # Update User

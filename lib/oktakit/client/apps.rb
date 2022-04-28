@@ -43,8 +43,8 @@ module Oktakit
       # @see http://developer.okta.com/docs/api/resources/apps.html#list-applications
       # @example
       #   Oktakit.list_applications
-      def list_applications(options = {})
-        get('/apps', options)
+      def list_applications(url, options = {})
+        get(url, options)
       end
 
       # Update Application
